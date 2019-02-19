@@ -8,7 +8,10 @@ const ProductList = (props) => {
         style={{marginBottom: '1rem'}}
       >ProductList</div>
       {props.products.map(product =>
-        <li key={product.id}>
+        <li 
+          key={product.id}
+          onClick={() => props.onProductSelect(product)}
+        >
           {product.name} {product.brand}
         </li>
       )}
@@ -18,6 +21,7 @@ const ProductList = (props) => {
 
 ProductList.propTypes = {
   products: PropTypes.array.isRequired,
+  onProductSelect: PropTypes.func.isRequired,
 }
 
 export default ProductList;
